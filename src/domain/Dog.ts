@@ -36,7 +36,7 @@ export class Dog {
    */
   getDescription(): string {
     // TODO: retornar la concatenación de this.name y this.breed
-    return "";
+    return `${this.name} ${this.breed}`;
   }
 
   /**
@@ -46,7 +46,8 @@ export class Dog {
    */
   sleep(): string {
     // TODO: leer el jsdoc
-    return "";
+    if ( !this.isSleeping ) this.isSleeping = true; // el if no es necesario, pq igual termina 
+    return `${this.name} is asleep`;  // quedando true si solo pones is.Sleeping=true;
   }
 
   /**
@@ -56,7 +57,8 @@ export class Dog {
    */
   wakeUp(): string {
     // TODO: leer el jsdoc
-    return "";
+    this.isSleeping = false;
+    return `${this.name} is awake`;;
   }
 
   /**
@@ -66,7 +68,7 @@ export class Dog {
    * @return A message indicating that the dog learned a new trick.
    */
   learnTrick(trick: string): string {
-    if (trick == null || trick == "") {
+    if (trick === null || trick === "") {
       throw new Error("Trick cannot be empty");
     }
     this.tricks.push(trick);
@@ -80,7 +82,7 @@ export class Dog {
    */
   bark(): string {
     // TODO: leer el jsdoc
-    return "";
+    return "Woof! Woof!";
   }
 
   /**
@@ -90,6 +92,13 @@ export class Dog {
    */
   displayInfo(): string {
     // TODO: leer el jsdoc
-    return "";
+    let state: string;
+    if(this.isSleeping) {
+      state = "is sleeping";
+    } 
+    else {
+      state = "is awake";
+    }
+    return `${this.name} is a ${this.age} year old ${this.color} ${this.breed} , ${state} and knows these tricks: ${this.tricks.join(", ")}`; 
   }
 }

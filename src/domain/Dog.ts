@@ -46,8 +46,8 @@ export class Dog {
    */
   sleep(): string {
     // TODO: leer el jsdoc
-    if ( !this.isSleeping ) this.isSleeping = true; // el if no es necesario, pq igual termina 
-    return `${this.name} is asleep`;  // quedando true si solo pones is.Sleeping=true;
+    this.isSleeping = true;
+    return `${this.name} is asleep`; 
   }
 
   /**
@@ -58,7 +58,7 @@ export class Dog {
   wakeUp(): string {
     // TODO: leer el jsdoc
     this.isSleeping = false;
-    return `${this.name} is awake`;;
+    return `${this.name} is awake`;
   }
 
   /**
@@ -93,12 +93,11 @@ export class Dog {
   displayInfo(): string {
     // TODO: leer el jsdoc
     let state: string;
-    if(this.isSleeping) {
-      state = "is sleeping";
-    } 
-    else {
+    if (this.isSleeping) {
+      state = "is asleep";
+    } else {
       state = "is awake";
     }
-    return `${this.name} is a ${this.age} year old ${this.color} ${this.breed} , ${state} and knows these tricks: ${this.tricks.join(", ")}`; 
+    return `${this.name} is a ${this.age} year old ${this.color} ${this.breed}, ${state} and knows these tricks: ${this.tricks.join(", ")}`;
   }
 }
